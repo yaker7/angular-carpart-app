@@ -1,0 +1,13 @@
+<div> {{ title | uppercase }} </div>
+<h2> {{ carPart.name }}</h2>
+<p>{{carPart.description}}</p>
+<p> {{carPart.inStock }} </p>
+
+<ul>
+  <li *ngFor="let cp of carParts">
+    <h2>{{cp.name }}</h2>
+    <p>{{cp.description }}</p>
+    <p *ngIf="cp.inStock > 0">{{cp.inStock}} in Stock</p>
+    <p *ngIf="cp.inStock === 0">Out of Stock</p>
+  </li>
+</ul>
