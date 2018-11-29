@@ -1,0 +1,37 @@
+<div class="container">
+  <header class="container">
+    <div> {{ title | uppercase }} </div>
+    <h3>There are {{totalCarParts()}} total parts in stock</h3>
+  </header>
+<ul>
+  <li class="card" *ngFor="let carPart of carParts"
+      [ngClass]="{'featured': carPart.featured}">
+    <div class="panel-body">
+      <div class="photo">
+        <img [src]="carPart.image" [alt]='carPart.description'>
+      </div>
+      <table class="product-info">
+        <tr>
+          <td>
+            <h2>{{carPart.name | uppercase}}</h2>
+            <p class="description">{{carPart.description}}</p>
+            <p *ngIf="carPart.inStock > 0">{{carPart.inStock}} in Stock</p>
+            <p *ngIf="carPart.inStock === 0">Out of Stock</p>
+          </td>
+          <td class="price">{{carPart.price | currency:'KRW':"code":'4.2-2'}}</td>
+          <td>
+            <div class="select-quantity">
+              {{carPart.quantity}}
+              <button class="decrease" (click)="downQuantity(carPart)" >-</button>
+              <!--<input class="number" type="number" [value]="carPart.quantity"
+                     (keyup)="keyupQuantity(carPart, $event)">-->
+              <input class="number" type="number" [(ngModel)]="carPart.quantity">
+              <button class="increase" (click)="upQuantity(carPart)" >+</button>
+            </div>
+          </td>
+        </tr>
+      </table>
+    </div>
+  </li>
+</ul>
+</div>
