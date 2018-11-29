@@ -22,8 +22,15 @@ export class CarpartsDataService {
     }
 
     getCarPartsPromise(): Promise<CarPart[]> {
+    /*
       // @ts-ignore
       return this.httpclient.get('assets/car-part.json')
+        .toPromise()
+        .then(res => res['data'])
+        .catch(err => console.log('Error Occured', err));
+        */
+      // @ts-ignore
+      return this.httpclient.get('http://localhost:52274/data.json')
         .toPromise()
         .then(res => res['data'])
         .catch(err => console.log('Error Occured', err));
