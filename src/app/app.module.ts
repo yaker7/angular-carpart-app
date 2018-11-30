@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CarpartsComponent } from './carparts/carparts.component';
 import { AboutComponent } from './about/about.component';
 import { RaceComponent } from './race/race.component';
+import {SharedModule} from './shared/shared.module';
 
 
 @NgModule({
@@ -22,6 +23,7 @@ import { RaceComponent } from './race/race.component';
     AppRoutingModule,
     FormsModule,
     HttpClientModule,
+    SharedModule
   ],
   providers: [],
   bootstrap: [AppComponent]
